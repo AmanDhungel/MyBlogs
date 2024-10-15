@@ -1,17 +1,27 @@
-import Image from "next/image"
+import {
+    Menubar,
+    MenubarMenu,
+    MenubarTrigger,
+  } from "@/components/ui/menubar"
 
-const Navbar = () => {
-  return (
-    <div className="bg-gray-100 rounded-2xl shadow-md p-4 backdrop-blur-md bg-opacity-50 dark:bg-gray-800 dark:bg-opacity-50 flex justify-between">
-        <Image src="/logo.png" alt="logo" className="w-12 h-12" />
-        <ul className="flex justify-between space-x-8">
-            <li>Home</li>
-            <li>Contact</li>
-            <li>Services</li>
-            <li>Blog</li>
-        </ul>
-    </div>
-  )
-}
-
-export default Navbar
+  import Link from "next/link"
+  
+  export function MenubarDemo() {
+    return (
+      <Menubar>
+        <MenubarMenu>
+         <Link href='/'><MenubarTrigger>Home</MenubarTrigger></Link>
+        </MenubarMenu>
+        <MenubarMenu>
+          <Link href='/services'><MenubarTrigger>Services</MenubarTrigger></Link>
+        </MenubarMenu>
+        <MenubarMenu>
+          <Link href='/blog'><MenubarTrigger>Blog</MenubarTrigger></Link>
+        </MenubarMenu>
+        <MenubarMenu>
+          <Link href='/contact'><MenubarTrigger>Contact</MenubarTrigger></Link>
+        </MenubarMenu>
+      </Menubar>
+    )
+  }
+  
