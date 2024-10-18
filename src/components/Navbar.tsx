@@ -3,24 +3,18 @@ import {
     MenubarMenu,
     MenubarTrigger,
   } from "@/components/ui/menubar"
+  import {navbar} from '../sample-data/Navbar'
 
   import Link from "next/link"
   
   export function MenubarDemo() {
     return (
-      <Menubar>
-        <MenubarMenu>
-         <Link href='/'><MenubarTrigger>Home</MenubarTrigger></Link>
+      <Menubar className="cursor-pointer">
+       {navbar.map((item) => (
+         <MenubarMenu key={item.href}>
+         <Link href={item.href}><MenubarTrigger className="cursor-pointer">{item.title}</MenubarTrigger></Link>
         </MenubarMenu>
-        <MenubarMenu>
-          <Link href='/services'><MenubarTrigger>Services</MenubarTrigger></Link>
-        </MenubarMenu>
-        <MenubarMenu>
-          <Link href='/blog'><MenubarTrigger>Blog</MenubarTrigger></Link>
-        </MenubarMenu>
-        <MenubarMenu>
-          <Link href='/contact'><MenubarTrigger>Contact</MenubarTrigger></Link>
-        </MenubarMenu>
+      ))} 
       </Menubar>
     )
   }
